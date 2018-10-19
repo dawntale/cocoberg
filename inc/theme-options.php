@@ -184,6 +184,6 @@ if ( ! class_exists( 'cocoberg_theme_options' ) ) {
 new cocoberg_theme_options();
 
 // Helper function to use in your theme to return a theme option value
-function myprefix_get_theme_option( $id = '' ) {
+function cocoberg_get_theme_option( $id = '' ) {
 	return cocoberg_theme_options::get_theme_option( $id );
 }
