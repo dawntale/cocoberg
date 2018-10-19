@@ -25,6 +25,83 @@ function cocoberg_customize_register( $wp_customize ) {
 			'render_callback' => 'cocoberg_customize_partial_blogdescription',
 		) );
 	}
+
+	/**
+	 * Cocoberg Theme Layouts.
+	 *
+	 */
+	$wp_customize->add_section( 'cocoberg_theme_layouts_section' , array(
+        'title'    => __( 'Chocoberg Layouts', 'cocoberg' ),
+        'priority' => 210,
+    ) );   
+
+    $wp_customize->add_setting( 'cocoberg_theme_layouts_settings' , array(
+		'default'   => 'block',
+        'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'cocoberg_layout', array(
+        'label'          => __( 'Cocoberg Layout', 'cocoberg' ),
+		'section'        => 'cocoberg_theme_layouts_section',
+		'settings'       => 'cocoberg_theme_layouts_settings',
+		'type'           => 'radio',
+		'choices'        => array(
+			'block'   => __( 'Block (Gutenberg)' ),
+			'full_width'  => __( 'Full Width' ),
+			'left_sidebar' => __( 'Left Sidebar' ),
+			'right_sidebar' => __( 'Right Sidebar' )
+		)
+	) ) );
+
+	/**
+	 * Cocoberg Social Media Link.
+	 *
+	 */
+	$wp_customize->add_section( 'cocoberg_social_link_section' , array(
+        'title'    => __( 'Chocoberg Social Link', 'cocoberg' ),
+        'priority' => 210,
+    ) );  
+
+	$wp_customize->add_setting( 'cocoberg_social_link_settings' , array(
+		'default'   => '',
+        'transport' => 'refresh',
+    ) );
+	
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'cocoberg_facebook', array(
+        'label'          => __( 'Facebook', 'cocoberg' ),
+		'section'        => 'cocoberg_social_link_section',
+		'settings'       => 'cocoberg_social_link_settings',
+		'type'           => 'text',
+	) ) );
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'cocoberg_twitter', array(
+        'label'          => __( 'Twitter', 'cocoberg' ),
+		'section'        => 'cocoberg_social_link_section',
+		'settings'       => 'cocoberg_social_link_settings',
+		'type'           => 'text',
+	) ) );
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'cocoberg_instagram', array(
+        'label'          => __( 'Instagram', 'cocoberg' ),
+		'section'        => 'cocoberg_social_link_section',
+		'settings'       => 'cocoberg_social_link_settings',
+		'type'           => 'text',
+	) ) );
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'cocoberg_github', array(
+        'label'          => __( 'Github', 'cocoberg' ),
+		'section'        => 'cocoberg_social_link_section',
+		'settings'       => 'cocoberg_social_link_settings',
+		'type'           => 'text',
+	) ) );
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'cocoberg_youtube', array(
+        'label'          => __( 'Youtube', 'cocoberg' ),
+		'section'        => 'cocoberg_social_link_section',
+		'settings'       => 'cocoberg_social_link_settings',
+		'type'           => 'text',
+	) ) );
+
 }
 add_action( 'customize_register', 'cocoberg_customize_register' );
 
