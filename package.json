@@ -1,0 +1,24 @@
+{
+  "name": "cocoberg",
+  "version": "1.0.0",
+  "description": "Cocoberg is multi-layout wordpress theme.",
+  "main": "index.php",
+  "devDependencies": {
+    "autoprefixer": "^9.1.5",
+    "bootstrap": "^4.1.3",
+    "node-sass": "^4.9.3",
+    "postcss-cli": "^6.0.0"
+  },
+  "scripts": {
+    "sass": "node-sass -w --output-style=expanded sass/style.scss style.css",
+    "autoprefixer": "postcss -u autoprefixer --no-map -r style.css"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "block",
+    "responsive"
+  ],
+  "author": "dawntale",
+  "license": "GPL-2.0"
+}
