@@ -22,6 +22,12 @@ function cocoberg_body_classes( $classes ) {
 		$classes[] = 'no-sidebar';
 	}
 
+	// Adds custom layout classes to the of body classes.
+	if (get_theme_mod( 'cocoberg_theme_layouts_settings')){
+		$layout = get_theme_mod( 'cocoberg_theme_layouts_settings', 'full-width' );
+		$classes[] = 'layout-' . $layout;
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'cocoberg_body_classes' );

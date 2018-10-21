@@ -36,7 +36,7 @@ function cocoberg_customize_register( $wp_customize ) {
     ) );   
 
     $wp_customize->add_setting( 'cocoberg_theme_layouts_settings' , array(
-		'default'   => 'block',
+		'default'   => 'full-width',
         'transport' => 'refresh',
     ) );
 
@@ -47,9 +47,9 @@ function cocoberg_customize_register( $wp_customize ) {
 		'type'           => 'radio',
 		'choices'        => array(
 			'block'   => __( 'Block (Gutenberg)' ),
-			'full_width'  => __( 'Full Width' ),
-			'left_sidebar' => __( 'Left Sidebar' ),
-			'right_sidebar' => __( 'Right Sidebar' )
+			'full-width'  => __( 'Full Width' ),
+			'left-sidebar' => __( 'Left Sidebar' ),
+			'right-sidebar' => __( 'Right Sidebar' )
 		)
 	) ) );
 
