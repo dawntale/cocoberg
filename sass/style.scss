@@ -51,6 +51,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "normalize";
 
 /*--------------------------------------------------------------
+# Bootstrap 4
+--------------------------------------------------------------*/
+@import "node_modules/bootstrap/scss/bootstrap";
+
+/*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
 @import "typography/typography";

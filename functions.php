@@ -122,7 +122,9 @@ add_action( 'widgets_init', 'cocoberg_widgets_init' );
 function cocoberg_scripts() {
 	wp_enqueue_style( 'cocoberg-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'cocoberg-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'cocoberg-jquery', get_template_directory_uri() . '/js/jquery.slim.min.js' );
+
+	wp_enqueue_script( 'cocoberg-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js' );
 
 	wp_enqueue_script( 'cocoberg-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -156,6 +158,11 @@ require get_template_directory() . '/inc/customizer.php';
  * Theme options additions.
  */
 require get_template_directory() . '/inc/theme-options.php';
+
+/**
+ * Bootstrap Navwalker.
+ */
+require get_template_directory() . '/inc/bootstrap-navwalker.php';
 
 /**
  * Load Jetpack compatibility file.
