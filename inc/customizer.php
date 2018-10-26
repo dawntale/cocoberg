@@ -30,6 +30,10 @@ function cocoberg_customize_register( $wp_customize ) {
 	 * Cocoberg Theme Layouts.
 	 *
 	 */
+    require_once( trailingslashit( get_template_directory() ) . 'inc/customize/cocoberg-radio-image.php' );
+
+    $wp_customize->register_control_type( 'Cocoberg_Customize_Control_Radio_Image' );
+
 	$wp_customize->add_section( 'cocoberg_theme_layouts_section' , array(
         'title'    => __( 'Chocoberg Layouts', 'cocoberg' ),
         'priority' => 210,
@@ -38,20 +42,32 @@ function cocoberg_customize_register( $wp_customize ) {
     $wp_customize->add_setting( 'cocoberg_theme_layouts_settings' , array(
 		'default'   => 'full-width',
         'transport' => 'refresh',
-    ) );
+	) );
 
-    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'cocoberg_layout', array(
-        'label'          => __( 'Cocoberg Layout', 'cocoberg' ),
-		'section'        => 'cocoberg_theme_layouts_section',
-		'settings'       => 'cocoberg_theme_layouts_settings',
-		'type'           => 'radio',
-		'choices'        => array(
-			'block'   => __( 'Block (Gutenberg)' ),
-			'full-width'  => __( 'Full Width' ),
-			'left-sidebar' => __( 'Left Sidebar' ),
-			'right-sidebar' => __( 'Right Sidebar' )
-		)
-	) ) );
+    $wp_customize->add_control( new Cocoberg_Customize_Control_Radio_Image( $wp_customize, 'cocoberg_layout', array(
+		'label'			=> esc_html__( 'Cocoberg Layout', 'cocoberg' ),
+		'description' 	=> esc_html__( 'Choose a layout for the blog posts.', 'cocoberg' ),
+		'section'       => 'cocoberg_theme_layouts_section',
+		'settings'      => 'cocoberg_theme_layouts_settings',
+		'choices'		=> [
+			'block' => [
+				'label' => esc_html__( 'Block (Gutenberg)', 'cocoberg' ),
+				'url'   => '%s/block.png'
+			],
+			'full-width' => [
+				'label' => esc_html__( 'Full Width', 'cocoberg' ),
+				'url'   => '%s/full-width.png'
+			],
+			'right-sidebar' => [
+				'label' => esc_html__( 'Right Sidebar', 'cocoberg' ),
+				'url'   => '%s/right-sidebar.png'
+			],
+			'left-sidebar' => [
+				'label' => esc_html__( 'Left Sidebar', 'cocoberg' ),
+				'url'   => '%s/left-sidebar.png'
+			],
+		]
+    ) ) );
 
 	/**
 	 * Cocoberg Social Media Link.
@@ -104,6 +120,7 @@ function cocoberg_customize_register( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'cocoberg_customize_register' );
+
 
 /**
  * Render the site title for the selective refresh partial.
